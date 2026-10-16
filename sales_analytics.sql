@@ -1,6 +1,6 @@
 -- Part C: SQL Analytics (SQLite)
 -- Run by etl_pipeline.py, which creates the table, loads the data, then runs the queries.
--- To run a query by hand, open sales.db in the sqlite3 CLI and paste it (see RUNNING_IN_VSCODE.md).
+-- To run a query by hand, open sales.db in the sqlite3 CLI and paste it.
 -- Each query carries a "name" tag; the pipeline exports it to query_outputs/<name>.csv
 
 -- 1. Create the sales table

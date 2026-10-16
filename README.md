@@ -13,8 +13,6 @@ python etl_pipeline.py
 
 Each run overwrites the files in `cloud_storage_bucket/`, `query_outputs/` and `sales.db`.
 
-Step-by-step setup in VS Code, including the virtual environment and troubleshooting: [`RUNNING_IN_VSCODE.md`](RUNNING_IN_VSCODE.md).
-
 ## Deliverables
 
 | # | Deliverable | File |
@@ -22,7 +20,7 @@ Step-by-step setup in VS Code, including the virtual environment and troubleshoo
 | i | Python script | [`etl_pipeline.py`](etl_pipeline.py) |
 | ii | Cleaned CSV | [`cloud_storage_bucket/sales/2026/cleaned_sales.csv`](cloud_storage_bucket/sales/2026/cleaned_sales.csv) |
 | iii | SQL script | [`sales_analytics.sql`](sales_analytics.sql) |
-| iv | Query output exports | [`query_outputs/`](query_outputs/) |
+| iv | Query outputs (screenshot + CSV exports) | [`query_outputs/`](query_outputs/) |
 | v | Short explanation | [`REPORT.pdf`](REPORT.pdf) (source: [`REPORT.md`](REPORT.md)) |
 
 Raw input: [`sales.csv`](sales.csv), the dataset provided with the assignment.

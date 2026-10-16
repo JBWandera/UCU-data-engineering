@@ -39,7 +39,8 @@ def parse_date(value):
     return pd.NaT
 
 
-# ---------------------------------------------------------------- Part A
+#  Part A
+
 def extract(path=RAW_FILE):
     # Read every column as text so we decide how bad values are handled.
     df = pd.read_csv(path, dtype=str)
@@ -102,7 +103,8 @@ def validate(df):
     print("[validate] all checks passed")
 
 
-# ---------------------------------------------------------------- Part B
+#  Part B
+
 def load_to_bucket(clean_file=CLEAN_FILE):
     """
     Simulates object storage (e.g. AWS S3, Azure Blob, Google Cloud Storage):
@@ -122,7 +124,8 @@ def load_to_bucket(clean_file=CLEAN_FILE):
     return target
 
 
-# ---------------------------------------------------------------- Part C
+#  Part C
+
 def read_sql_script(path=SQL_FILE):
     """Split the SQL file into the DDL block and the named analytics queries."""
     chunks = path.read_text(encoding="utf-8").split("-- name:")
