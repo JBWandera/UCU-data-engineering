@@ -23,7 +23,7 @@ Step-by-step setup in VS Code, including the virtual environment and troubleshoo
 | ii | Cleaned CSV | [`cloud_storage_bucket/sales/2026/cleaned_sales.csv`](cloud_storage_bucket/sales/2026/cleaned_sales.csv) |
 | iii | SQL script | [`sales_analytics.sql`](sales_analytics.sql) |
 | iv | Query output exports | [`query_outputs/`](query_outputs/) |
-| v | Short explanation | [`REPORT.md`](REPORT.md) |
+| v | Short explanation | [`REPORT.pdf`](REPORT.pdf) (source: [`REPORT.md`](REPORT.md)) |
 
 Raw input: [`sales.csv`](sales.csv), the dataset provided with the assignment.
 

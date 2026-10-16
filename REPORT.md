@@ -1,7 +1,9 @@
 # Building a Simple ETL Pipeline
 
 **Course:** Data Engineering and Cloud Computing
+
 **Group members:** Bwire Jude Wandera (B35390) · Geoffrey Oyet (B35603)
+
 **Date:** 16 October 2026
 
 ## 1. ETL process implemented
