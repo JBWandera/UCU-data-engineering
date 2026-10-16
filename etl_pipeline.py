@@ -41,7 +41,7 @@ def parse_date(value):
 
 # ---------------------------------------------------------------- Part A
 def extract(path=RAW_FILE):
-    # Read everything as text first so bad values can be inspected, not silently coerced.
+    # Read every column as text so we decide how bad values are handled.
     df = pd.read_csv(path, dtype=str)
     print(f"[extract] {len(df)} rows read from {path.name}")
     return df
@@ -57,8 +57,8 @@ def transform(df):
     log["duplicates_removed"] = log["raw_rows"] - len(df)
 
     # ii. Missing values.
-    #   - quantity / unit_price / id / date are needed to compute revenue, and inventing
-    #     a quantity would fabricate sales, so those rows are dropped.
+    #   - quantity / unit_price / id / date are needed to compute revenue. Guessing a
+    #     missing quantity would invent sales, so those rows are dropped.
     #   - descriptive text fields are kept and labelled "Unknown".
     df["quantity"] = pd.to_numeric(df["quantity"], errors="coerce")
     df["unit_price"] = pd.to_numeric(df["unit_price"], errors="coerce")
@@ -93,7 +93,7 @@ def transform(df):
 
 
 def validate(df):
-    # Data-quality gate: the load step only runs if these hold.
+    # The load step runs only if all of these checks pass.
     assert df["transaction_id"].is_unique, "duplicate transaction_id"
     assert not df.isna().any().any(), "missing values remain"
     assert (df["quantity"] > 0).all(), "non-positive quantity remains"
@@ -108,11 +108,11 @@ def load_to_bucket(clean_file=CLEAN_FILE):
     Simulates object storage (e.g. AWS S3, Azure Blob, Google Cloud Storage):
       - cloud_storage_bucket/      -> the bucket (top-level, uniquely named container)
       - sales/2026/cleaned_sales.csv -> the object KEY. Object stores are flat; the
-        "/" separators are just a naming convention (prefixes) that consoles display
+        "/" separators are a naming convention (prefixes) that consoles display
         as folders. Prefixes like dataset/year/ let query engines and lifecycle rules
         target one slice of the data (partitioning) without scanning everything.
-      - The file is written once and treated as immutable; a new run overwrites the
-        whole object rather than editing it in place, just like a PUT to S3.
+      - The file is written once and never edited; a new run replaces the
+        whole object, the same way a PUT to S3 does.
     """
     target_dir = BUCKET / "sales" / "2026"
     target_dir.mkdir(parents=True, exist_ok=True)

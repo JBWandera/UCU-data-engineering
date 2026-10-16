@@ -1,15 +1,19 @@
-# UCU Data Engineering — Simple ETL Pipeline
+# UCU Data Engineering: Simple ETL Pipeline
 
 Practical assignment: extract branch sales data, clean it with Python, load it into simulated cloud storage, and analyse it with SQL (SQLite).
+
+Group members: Bwire Jude Wandera (B35390) and Geoffrey Oyet (B35603).
 
 ## Run
 
 ```bash
-pip install pandas
+pip install -r requirements.txt
 python etl_pipeline.py
 ```
 
-The script recreates `cloud_storage_bucket/`, `sales.db` and `query_outputs/` on each run.
+Each run overwrites the files in `cloud_storage_bucket/`, `query_outputs/` and `sales.db`.
+
+Step-by-step setup in VS Code, including the virtual environment and troubleshooting: [`RUNNING_IN_VSCODE.md`](RUNNING_IN_VSCODE.md).
 
 ## Deliverables
 
